@@ -1,13 +1,24 @@
 const webp=require('webp-converter');
 const fs = require('fs');
+const path = require("path");
 const folder = 'images/';
 const output = 'webp/';
+
+fs.readdir(output, (err, files) => {
+  if (err) throw err;
+
+  for (const file of files) {
+    fs.unlink(path.join(output, file), (err) => {
+      if (err) throw err;
+    });
+  }
+});
 
 fs.readdir(folder, (err, files) => {
   files.forEach(file => {
     const fileWithoutFormat = file.split('.')[0];
 
-    const result = webp.cwebp(folder + file, output + fileWithoutFormat + '.webp',"-q 0",logging="-v");
+    const result = webp.cwebp(folder + file, output + fileWithoutFormat + '.webp',"-q 70",logging="-v");
     result.then((response) => {
         console.log(response);
     });
