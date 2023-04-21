@@ -29,7 +29,7 @@ fs.readdir(folder, (err, files) => {
 
 //cwebp(input,output,option)
 
-const result = webp.cwebp("images/main-asset-1.jpg","webp/main-asset-1.webp","-q 92",logging="-v");
-result.then((response) => {
-  console.log(response);
-});
+//const result = webp.cwebp("images/main-asset-1.jpg","webp/main-asset-1.webp","-q 92",logging="-v");
+//result.then((response) => {
+//  console.log(response);
+//});
